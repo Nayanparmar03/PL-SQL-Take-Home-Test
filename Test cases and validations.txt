@@ -1,0 +1,18 @@
+
+Test Case 1: For Perfect Match
+- Description: All records in exchange_ownership match those in depository_ownership.
+- Expected Outcome: All entries in ownership_comparison_log should have result = 'MATCH'.
+
+Test Case 2: For Mismatches
+- Scenario 1: A record in the exchange data has a different stock count than in the depository data.
+- Expected Outcome: The mismatched records should be logged with result = 'MISMATCH'.
+
+- Scenario 2: A stock is missing in one source.
+- Expected Outcome: Log should reflect only the data present in both sources, ignoring records that do not have matches in the opposite table.
+
+Test Case 3: For Missing or Corrupt Data
+- Scenario 1: Missing fields in CSV row.
+- Expected Outcome: The row is skipped, and a relevant message would get into log file.
+
+- Scenario 2: Corrupt file or invalid format.
+- Expected Outcome: The package should log an error and exit without processing further.
