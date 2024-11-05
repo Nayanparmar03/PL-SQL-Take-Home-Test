@@ -1,0 +1,30 @@
+1. Prepare Database Tables
+- Ensure that the tables (exchange_ownership, depository_ownership, and ownership_comparison_log) are created in the database.
+
+
+2. Load the Package Code
+- Copy the package and package body code provided above and execute it in your SQL environment. 
+- This will compile the stock_ownership_pkg package in the database.
+
+
+3. Place CSV Files in the Expected Directory
+- The package expects the CSV files (exchange_data.csv and depository_data.csv) to be located in directories to Oracle UTL_FILE utility.
+- If required, create an Oracle Directory object pointing to the location of your files:
+
+
+4. Execute Procedures in the Package
+
+
+5. Check the Results
+- After running the package procedures, query the ownership_comparison_log table to see the logged
+
+
+- Error Handling: Any errors in file paths, data format issues, or file corruption will be caught by the package’s error-handling logic, 
+    		  which will print messages to the console via DBMS_OUTPUT.
+- Logging: For detailed logging, ensure DBMS_OUTPUT is enabled if you're running the package in an environment that supports it. 
+           Use SET SERVEROUTPUT ON in SQL*Plus to enable output.
+
+
+
+
+
